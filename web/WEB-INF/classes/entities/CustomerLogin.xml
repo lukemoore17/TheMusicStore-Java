@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="entities.CustomerLogin">
+        <table name="customer_login" schema="music_store" catalog=""/>
+        <attributes>
+            <id name="customerId">
+                <column name="CustomerID" precision="11"/>
+            </id>
+            <basic name="username">
+                <column name="Username" length="20"/>
+            </basic>
+            <basic name="password">
+                <column name="Password" length="60"/>
+            </basic>
+            <basic name="email">
+                <column name="Email" nullable="false" length="254"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

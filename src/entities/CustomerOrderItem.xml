@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="entities.CustomerOrderItem">
+        <table name="customer_order_item" schema="music_store" catalog=""/>
+        <attributes>
+            <id name="customerOrderItemId">
+                <column name="CustomerOrderItemID" precision="11"/>
+            </id>
+            <basic name="quantity">
+                <column name="Quantity" precision="11"/>
+            </basic>
+            <many-to-one name="albumByAlbumId" optional="true" target-entity="entities.Album">
+                <join-column name="AlbumID" referenced-column-name="AlbumID"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+</entity-mappings>

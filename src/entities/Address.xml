@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="entities.Address">
+        <table name="address" schema="music_store" catalog=""/>
+        <attributes>
+            <id name="addressId">
+                <column name="AddressID" precision="11"/>
+            </id>
+            <basic name="firstName">
+                <column name="FirstName" length="25"/>
+            </basic>
+            <basic name="lastName">
+                <column name="LastName" length="25"/>
+            </basic>
+            <basic name="addressLine1">
+                <column name="AddressLine1" length="50"/>
+            </basic>
+            <basic name="addressLine2">
+                <column name="AddressLine2" nullable="false" length="50"/>
+            </basic>
+            <basic name="city">
+                <column name="City" length="20"/>
+            </basic>
+            <basic name="state">
+                <column name="State" length="2"/>
+            </basic>
+            <basic name="zip">
+                <column name="Zip" length="5"/>
+            </basic>
+            <one-to-many name="customerAddressesByAddressId" mapped-by="addressByAddressId"
+                         target-entity="entities.CustomerAddress"/>
+            <one-to-many name="customerOrdersByAddressId" mapped-by="addressByShipAddressId"
+                         target-entity="entities.CustomerOrder"/>
+            <one-to-many name="customerOrdersByAddressId_0" mapped-by="addressByBillAddressId"
+                         target-entity="entities.CustomerOrder"/>
+            <one-to-many name="guestCustomersByAddressId" mapped-by="addressByShipAddressId"
+                         target-entity="entities.GuestCustomer"/>
+            <one-to-many name="guestCustomersByAddressId_0" mapped-by="addressByBillAddressId"
+                         target-entity="entities.GuestCustomer"/>
+        </attributes>
+    </entity>
+</entity-mappings>

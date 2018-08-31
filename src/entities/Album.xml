@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="entities.Album">
+        <table name="album" schema="music_store" catalog=""/>
+        <attributes>
+            <id name="albumId">
+                <column name="AlbumID" precision="11"/>
+            </id>
+            <basic name="albumName">
+                <column name="AlbumName" length="60"/>
+            </basic>
+            <basic name="artist">
+                <column name="Artist" length="40"/>
+            </basic>
+            <basic name="year">
+                <column name="Year" length="4"/>
+            </basic>
+            <basic name="price">
+                <column name="Price" precision="-1"/>
+            </basic>
+            <basic name="imageLink">
+                <column name="ImageLink" nullable="false" length="45"/>
+            </basic>
+            <one-to-many name="customerOrderItemsByAlbumId" mapped-by="albumByAlbumId"
+                         target-entity="entities.CustomerOrderItem"/>
+            <one-to-many name="guestOrderItemsByAlbumId" mapped-by="albumByAlbumId"
+                         target-entity="entities.GuestOrderItem"/>
+        </attributes>
+    </entity>
+</entity-mappings>

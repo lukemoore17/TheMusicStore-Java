@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="entities.CustomerOrder">
+        <table name="customer_order" schema="music_store" catalog=""/>
+        <attributes>
+            <id name="orderId">
+                <column name="OrderID" precision="11"/>
+            </id>
+            <basic name="date">
+                <column name="Date" nullable="false" length="20"/>
+            </basic>
+            <many-to-one name="addressByShipAddressId" optional="true" target-entity="entities.Address">
+                <join-column name="ShipAddressID" nullable="false" referenced-column-name="AddressID"/>
+            </many-to-one>
+            <many-to-one name="addressByBillAddressId" optional="true" target-entity="entities.Address">
+                <join-column name="BillAddressID" nullable="false" referenced-column-name="AddressID"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+</entity-mappings>

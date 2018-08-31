@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="entities.GuestOrder">
+        <table name="guest_order" schema="music_store" catalog=""/>
+        <attributes>
+            <id name="orderId">
+                <column name="OrderID" precision="11"/>
+            </id>
+            <basic name="date">
+                <column name="Date" nullable="false" length="20"/>
+            </basic>
+            <many-to-one name="guestCustomerByGuestCustomerId" optional="true" target-entity="entities.GuestCustomer">
+                <join-column name="GuestCustomerID" referenced-column-name="GuestCustomerID"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+</entity-mappings>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="TheMusicStore">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <mapping-file>entities/Address.xml</mapping-file>
+        <mapping-file>entities/Album.xml</mapping-file>
+        <mapping-file>entities/Customer.xml</mapping-file>
+        <mapping-file>entities/CustomerAddress.xml</mapping-file>
+        <mapping-file>entities/CustomerLogin.xml</mapping-file>
+        <mapping-file>entities/CustomerOrder.xml</mapping-file>
+        <mapping-file>entities/CustomerOrderItem.xml</mapping-file>
+        <mapping-file>entities/GuestCustomer.xml</mapping-file>
+        <mapping-file>entities/GuestOrder.xml</mapping-file>
+        <mapping-file>entities/GuestOrderItem.xml</mapping-file>
+        <class>entities.Address</class>
+        <class>entities.Album</class>
+        <class>entities.Customer</class>
+        <class>entities.CustomerAddress</class>
+        <class>entities.CustomerLogin</class>
+        <class>entities.CustomerOrder</class>
+        <class>entities.CustomerOrderItem</class>
+        <class>entities.GuestCustomer</class>
+        <class>entities.GuestOrder</class>
+        <class>entities.GuestOrderItem</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:mysql://themusicstore-jsp.crvn7fbl1pka.us-east-1.rds.amazonaws.com:3306/music_store"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value="musicstore_user"/>
+            <property name="hibernate.connection.password" value="password123"/>
+            <property name="hibernate.archive.autodetection" value="class"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hbm2ddl.auto" value="update"/>
+        </properties>
+    </persistence-unit>
+</persistence>
